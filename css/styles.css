@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+* {
+    font-family: 'Lato';
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0f2027; /* Mismo color base del último bloque */
+    overflow-x: hidden;
+}
+
+header {
+    width: 90vw;
+    min-height: 60px;
+    
+    /* Liquid Glass (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+    /* Positioning to allow clear visibility of the glass border */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 20px auto 0 auto;
+    z-index: 100;
+    
+    /* Layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    color: white;
+
+    /* Animation */
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.description {
+    /* Mantenemos una altura normal que ocupe toda la pantalla inicial */
+    position: relative; 
+    height: 100vh;
+    width: 100vw;
+    
+    /* Capa oscura semitransparente (overlay) + la imagen original */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/yo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Efecto "Parallax" para que se quede fija en el sitio */
+    background-attachment: fixed;
+
+    /* Preparado para centrar el texto que se añadirá y ponerlo blanco por defecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Estilos de la tarjeta 'Sobre Mí' */
+.description article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 2; /* Para que quede por encima del fondo */
+}
+
+.description h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para que se lea mejor el título */
+    letter-spacing: 2px;
+}
+
+.about-container {
+    max-width: 800px;
+    padding: 30px 40px;
+    margin: 0 20px;
+    
+    /* Liquid Glass (mismo estilo que el header) */
+    background: rgba(255, 255, 255, 0.1); /* Ligeramente más transparente que la cabecera */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.about-container p {
+    font-size: 1.15rem;
+    line-height: 1.6; /* Interlineado para mejor lectura */
+    margin-bottom: 20px;
+    text-align: left; /* Alineado a la izquierda para leer como un documento */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Refuerza la lectura del párrafo blanco */
+}
+
+.about-container p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Tech Stack Badges --- */
+.tech-stack {
+    margin-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.tech-stack h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.badge {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.badge:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Colores sutiles de hover (opcional para darle vida) */
+.badge.frontend:hover { border-color: #00d2ff; color: #00d2ff; text-shadow: 0 0 5px #00d2ff; }
+.badge.backend:hover { border-color: #ff007f; color: #ff007f; text-shadow: 0 0 5px #ff007f; }
+.badge.db:hover { border-color: #00ff88; color: #00ff88; text-shadow: 0 0 5px #00ff88; }
+
+
+/* --- Sección Contacto --- */
+.contacto {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Fondo moderno, entre oscuro y azul profundo */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Que ocupe toda la pantalla para que no quede hueco abajo */
+}
+
+.contact-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05); /* Cristal más transparente que el About para destacar sobre fondo oscuro */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 50px 30px;
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    color: aqua; /* Dándole un pequeño toque diferente */
+}
+
+.contact-container p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85); /* Un poco más apagado para contraste */
+    margin-bottom: 45px;
+    padding: 0 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 18px 30px;
+    border-radius: 50px; /* Bordes totalmente redondeados tipo pastilla */
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    flex-grow: 1; 
+    max-width: 400px;
+}
+
+/* Efecto hover solo para los enlaces */
+a.contact-card:hover { 
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+    border-color: rgba(0, 255, 255, 0.6);
+}
+
+.contact-card .icon {
+    font-size: 1.5rem;
+}
+
+.contact-card.info-only {
+    cursor: default; /* Sin el punterito de click */
+}
+
+/* Estilos de los enlaces del Menú */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: aqua;
+}
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Menú Responsivo (Móvil) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    /* Animación del icono a una 'X' */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menú Desplegable estilo Liquid Glass */
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        
+        max-height: 0;
+        opacity: 0; /* Oculta la línea del borde/sombra cuando el menú está cerrado */
+        pointer-events: none; /* Previene clics accidentales cuando está oculto */
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, margin-top 0.3s, opacity 0.3s ease-in-out;
+        margin-top: 0;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+        opacity: 1; /* Muestra el menú cuando está activo */
+        pointer-events: auto;
+        margin-top: 15px; /* Separación del header */
+    }
+
+    .nav-menu ul {
+        flex-direction: row; /* Coloca los elementos en fila (horizontal) en lugar de columna */
+        justify-content: space-around;
+        flex-wrap: wrap; /* Permite que pasen a la siguiente línea si la pantalla es muy pequeña */
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    /* Ajustes tarjeta "Sobre Mí" para que se vea la cara en el fondo y no se sienta vacía */
+    .description article {
+        justify-content: center; /* Centrado vertical en la pantalla disponible */
+        height: 100%;
+        padding-top: 15vh; /* Se empuja hacia abajo un poco pero se centra en el espacio restante */
+    }
+
+    .about-container {
+        margin: 0 15px; 
+        padding: 25px 20px; /* Un poco más de aire por dentro */
+        background: rgba(0, 0, 0, 0.45); /* Apenas oscurecido un poco más */
+        backdrop-filter: blur(10px); /* Un poco más de blur que en la versión de abajo del todo */
+        -webkit-backdrop-filter: blur(10px);
+        /* Quitamos max-height y overflow-y para desactivar el scroll interno */
+    }
+
+    .description h2 {
+        font-size: 2rem; /* Título un poco más pequeño */
+        margin-bottom: 5px;
+    }
+
+    .about-container p {
+        font-size: 0.95rem; /* Texto amigable para pantallas pequeñas */
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+}
