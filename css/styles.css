@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
 }
 
+/* --- HEADER MÓVIL (Base) --- */
 header {
     width: 90vw;
     min-height: 60px;
@@ -34,7 +35,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
     box-sizing: border-box;
     color: white;
 
@@ -51,8 +52,92 @@ header {
     }
 }
 
+/* Menú Hamburguesa (visible en móvil) */
+.hamburger {
+    display: block;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Animación del icono a una 'X' */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menú Desplegable (Oculto en móvil por defecto) */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, margin-top 0.3s, opacity 0.3s ease-in-out;
+    margin-top: 0;
+}
+
+.nav-menu.active {
+    max-height: 300px;
+    opacity: 1;
+    pointer-events: auto;
+    margin-top: 15px; /* Separación del header */
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Horizontal */
+    justify-content: space-around;
+    flex-wrap: wrap; /* Para pantallas muy pequeñas */
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: aqua;
+}
+
+/* --- SECCIÓN SOBRE MÍ (Móvil Base) --- */
 .description {
-    /* Mantenemos una altura normal que ocupe toda la pantalla inicial */
     position: relative; 
     height: 100vh;
     width: 100vw;
@@ -62,11 +147,8 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
-    /* Efecto "Parallax" para que se quede fija en el sitio */
     background-attachment: fixed;
 
-    /* Preparado para centrar el texto que se añadirá y ponerlo blanco por defecto */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,49 +156,50 @@ header {
     text-align: center;
 }
 
-/* Estilos de la tarjeta 'Sobre Mí' */
 .description article {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-top: 15vh; /* Se empuja hacia abajo un poco */
     gap: 20px;
-    z-index: 2; /* Para que quede por encima del fondo */
+    z-index: 2;
 }
 
 .description h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 900;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para que se lea mejor el título */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
 .about-container {
-    max-width: 800px;
-    padding: 30px 40px;
-    margin: 0 20px;
+    padding: 25px 20px;
+    margin: 0 15px;
     
-    /* Liquid Glass (mismo estilo que el header) */
-    background: rgba(255, 255, 255, 0.1); /* Ligeramente más transparente que la cabecera */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    /* Liquid Glass adaptado a móvil */
+    background: rgba(0, 0, 0, 0.45); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .about-container p {
-    font-size: 1.15rem;
-    line-height: 1.6; /* Interlineado para mejor lectura */
-    margin-bottom: 20px;
-    text-align: left; /* Alineado a la izquierda para leer como un documento */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Refuerza la lectura del párrafo blanco */
+    font-size: 0.95rem;
+    line-height: 1.4; 
+    margin-bottom: 12px;
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
 .about-container p:last-child {
     margin-bottom: 0;
 }
 
-/* --- Tech Stack Badges --- */
 .tech-stack {
     margin-top: 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -157,55 +240,200 @@ header {
     box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
 }
 
-/* Colores sutiles de hover (opcional para darle vida) */
 .badge.frontend:hover { border-color: #00d2ff; color: #00d2ff; text-shadow: 0 0 5px #00d2ff; }
 .badge.backend:hover { border-color: #ff007f; color: #ff007f; text-shadow: 0 0 5px #ff007f; }
 .badge.db:hover { border-color: #00ff88; color: #00ff88; text-shadow: 0 0 5px #00ff88; }
 
+/* --- SECCIÓN PROYECTOS (Móvil Base) --- */
+.proyectos {
+    padding: 80px 15px;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
 
-/* --- Sección Contacto --- */
+.proyectos h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: aqua;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn {
+    display: none; /* Ocultos en móvil */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: aqua;
+    color: aqua;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.carousel-btn.prev {
+    left: -20px;
+}
+
+.carousel-btn.next {
+    right: -20px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 15px; /* Menos espacio en móvil */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* 100vw - 85% de la caja = 15%, mitad es 7.5% por lado para que quede perfecto */
+    padding: 40px calc(50% - 42.5vw);
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.project-card {
+    flex: 0 0 70vw; /* Casi todo el ancho de la pantalla móvil */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    scroll-snap-align: center;
+    transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease, border-color 0.4s ease;
+    transform: scale(0.9);
+    opacity: 0.5;
+    filter: blur(1px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.project-card.active {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: blur(0);
+    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+    z-index: 2;
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.project-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid aqua;
+    color: aqua;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+.project-card .btn:hover {
+    background: aqua;
+    color: #0f2027;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.desliza {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* --- SECCIÓN CONTACTO (Móvil Base) --- */
 .contacto {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Fondo moderno, entre oscuro y azul profundo */
+    padding: 80px 15px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Que ocupe toda la pantalla para que no quede hueco abajo */
+    min-height: 100vh;
 }
 
 .contact-container {
-    max-width: 800px;
     width: 100%;
     text-align: center;
-    background: rgba(255, 255, 255, 0.05); /* Cristal más transparente que el About para destacar sobre fondo oscuro */
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    padding: 50px 30px;
+    padding: 40px 20px;
 }
 
 .contact-container h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-    color: aqua; /* Dándole un pequeño toque diferente */
+    color: aqua;
 }
 
 .contact-container p {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.85); /* Un poco más apagado para contraste */
-    margin-bottom: 45px;
-    padding: 0 20px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+    padding: 0 10px;
 }
 
 .contact-info {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column; /* Apilados verticalmente en móvil */
+    gap: 15px;
     justify-content: center;
 }
 
@@ -215,19 +443,18 @@ header {
     justify-content: center;
     gap: 15px;
     background: rgba(255, 255, 255, 0.1);
-    padding: 18px 30px;
-    border-radius: 50px; /* Bordes totalmente redondeados tipo pastilla */
+    padding: 15px 20px;
+    border-radius: 50px;
     text-decoration: none;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-    flex-grow: 1; 
-    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Efecto hover solo para los enlaces */
 a.contact-card:hover { 
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-5px);
@@ -240,128 +467,140 @@ a.contact-card:hover {
 }
 
 .contact-card.info-only {
-    cursor: default; /* Sin el punterito de click */
+    cursor: default;
 }
 
-/* Estilos de los enlaces del Menú */
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
 
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+/* ==============================================================
+   MEDIA QUERIES (Desktop y Tablets, a partir de 768px hacia arriba) 
+   ============================================================== */
 
-.nav-menu a:hover {
-    color: aqua;
-}
-
-/* Menú Hamburguesa */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    padding: 0;
-}
-
-.hamburger .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-    border-radius: 5px;
-}
-
-/* Menú Responsivo (Móvil) */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+    /* HEADER: Mostramos menú normal y ocultamos hamburguesa */
+    header {
+        padding: 0 30px;
+    }
+    
     .hamburger {
-        display: block;
+        display: none;
     }
 
-    /* Animación del icono a una 'X' */
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* Menú Desplegable estilo Liquid Glass */
     .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-        
-        max-height: 0;
-        opacity: 0; /* Oculta la línea del borde/sombra cuando el menú está cerrado */
-        pointer-events: none; /* Previene clics accidentales cuando está oculto */
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out, margin-top 0.3s, opacity 0.3s ease-in-out;
-        margin-top: 0;
-    }
-
-    .nav-menu.active {
-        max-height: 300px;
-        opacity: 1; /* Muestra el menú cuando está activo */
+        position: static;
+        max-height: none;
+        opacity: 1;
         pointer-events: auto;
-        margin-top: 15px; /* Separación del header */
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        margin-top: 0;
+        width: auto;
     }
 
     .nav-menu ul {
-        flex-direction: row; /* Coloca los elementos en fila (horizontal) en lugar de columna */
-        justify-content: space-around;
-        flex-wrap: wrap; /* Permite que pasen a la siguiente línea si la pantalla es muy pequeña */
-        align-items: center;
-        padding: 20px;
+        padding: 0;
         gap: 20px;
     }
 
-    /* Ajustes tarjeta "Sobre Mí" para que se vea la cara en el fondo y no se sienta vacía */
+    /* SOBRE MÍ: Tarjeta más centrada y menos compacta */
     .description article {
-        justify-content: center; /* Centrado vertical en la pantalla disponible */
-        height: 100%;
-        padding-top: 15vh; /* Se empuja hacia abajo un poco pero se centra en el espacio restante */
-    }
-
-    .about-container {
-        margin: 0 15px; 
-        padding: 25px 20px; /* Un poco más de aire por dentro */
-        background: rgba(0, 0, 0, 0.45); /* Apenas oscurecido un poco más */
-        backdrop-filter: blur(10px); /* Un poco más de blur que en la versión de abajo del todo */
-        -webkit-backdrop-filter: blur(10px);
-        /* Quitamos max-height y overflow-y para desactivar el scroll interno */
+        justify-content: center;
+        padding-top: 0;
     }
 
     .description h2 {
-        font-size: 2rem; /* Título un poco más pequeño */
-        margin-bottom: 5px;
+        font-size: 3rem;
     }
 
+    .about-container {
+        max-width: 800px;
+        padding: 30px 40px;
+        margin: 0 20px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    
     .about-container p {
-        font-size: 0.95rem; /* Texto amigable para pantallas pequeñas */
-        line-height: 1.4;
-        margin-bottom: 12px;
+        font-size: 1.15rem;
+        margin-bottom: 20px;
+    }
+
+    /* PROYECTOS: Aparecen los botones y cambia el espaciado/ancho */
+    .proyectos {
+        padding: 100px 20px;
+    }
+
+    .proyectos h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .carousel-container {
+        max-width: 1000px;
+    }
+
+    .carousel-btn {
+        display: flex; /* Vuelven a aparecer los botones */
+    }
+
+    .carousel-track {
+        gap: 30px;
+        padding: 60px calc(50% - 160px); /* Padding para PC: 280px más margins de 20 por lado = 320/2 */
+    }
+
+    .project-card {
+        flex: 0 0 calc(33.333% - 20px);
+        min-width: 280px;
+        width: 280px; /* Tamaño fijo por tarjeta en PC */
+        transform: scale(0.85);
+        filter: blur(2px);
+    }
+
+    .project-card.active {
+        transform: scale(1.1);
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .project-card p {
+        font-size: 1rem;
+    }
+
+    /* CONTACTO: Distribuir tarjetas en línea en lugar de columna */
+    .contacto {
+        padding: 100px 20px;
+    }
+
+    .contact-container {
+        max-width: 800px;
+        padding: 50px 30px;
+    }
+
+    .contact-container h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-container p {
+        font-size: 1.15rem;
+        margin-bottom: 45px;
+        padding: 0 20px;
+    }
+
+    .contact-info {
+        flex-direction: row; /* Horizontal para PC */
+        flex-wrap: wrap;     
+    }
+
+    .contact-card {
+        flex-grow: 1; 
+        max-width: 400px;
+        font-size: 1.1rem;
+        width: auto;
     }
 }
