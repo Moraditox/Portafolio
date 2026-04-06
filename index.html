@@ -3,18 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Este es mi portafolio en el que voy a enseñar todo lo que he aprendido y todo lo que he ido haciendo en mis estudios.">
+        <meta name="description" content="Portafolio de Héctor - Desarrollador Full Stack especializado en Angular, SpringBoot, Laravel y más.">
         <meta name="robots" content="index, follow">
         <meta name="author" content="Héctor">
-        <meta name="keywords">
-        <meta http-equiv="refresh">
+        <meta name="keywords" content="desarrollador web, full stack, angular, springboot, laravel, php, java">
         <link rel="stylesheet" href="./css/styles.css">
         <script src="./scripts/main.js" defer></script>
-        <title>Portafolio de Héctor</title>
+        <title>Héctor — Full Stack Developer</title>
     </head>
     <body>
+
+        <!-- Fondo de partículas animadas -->
+        <canvas id="particles-canvas"></canvas>
+
         <header>
-            <h1>&lt;HMS/&gt;</h1>
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>HMS<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span>
+            </div>
             <button class="hamburger" aria-label="Abrir menú">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -22,83 +27,309 @@
             </button>
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="#sobre-mi">Sobre mi</a></li>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
                     <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#cv">CV</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </header>
 
+        <!-- HERO / SOBRE MÍ -->
         <section class="description" id="sobre-mi">
+            <div class="hero-bg-overlay"></div>
             <article>
-                <h2>Sobre mi</h2>
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Disponible para trabajar
+                </div>
+                <h2>Héctor M. S.</h2>
+                <p class="hero-subtitle">Full Stack Developer</p>
                 <div class="about-container">
                     <p>
-                        ¡Hola! Soy Héctor, un <strong>Desarrollador Full Stack</strong> apasionado por la creación de soluciones digitales eficientes. Tras formarme en Sistemas Microinformáticos y Redes, y Técnico Superior en Desarrollo Web, aplico mis conocimientos en entornos de producción reales.
+                        ¡Hola! Soy un <strong>Desarrollador Full Stack</strong> apasionado por crear soluciones digitales eficientes y elegantes. Con formación en Sistemas Microinformáticos y Redes, y Técnico Superior en Desarrollo Web, aplico mis conocimientos en entornos de producción reales.
                     </p>
                     <p>
-                        Me motivo resolviendo problemas complejos, trabajando en equipo dentro de metodologías ágiles, y me adapto rápidamente a nuevas herramientas para optimizar tanto Frontend como Backend.
+                        Me motivan los problemas complejos, el trabajo en equipo con metodologías ágiles y la constante búsqueda de optimización tanto en Frontend como en Backend.
                     </p>
-                    
-                    <div class="tech-stack">
-                        <h3>Tech Stack</h3>
-                        <div class="tech-badges">
-                            <span class="badge backend">Java</span>
-                            <span class="badge backend">PHP</span>
-                            <span class="badge backend">Laravel</span>
-                            <span class="badge backend">SpringBoot</span>
-                            <span class="badge frontend">Angular</span>
-                            <span class="badge frontend">Astro</span>
-                            <span class="badge frontend">JS / TS</span>
-                            <span class="badge db">MySQL</span>
-                        </div>
-                    </div>
                 </div>
+                <a href="#cv" class="hero-cta">Ver mi CV <span>↓</span></a>
             </article>
         </section>
 
+        <!-- PROYECTOS -->
         <section class="proyectos" id="proyectos">
             <article>
-                <h2>Proyectos</h2>
+                <div class="section-header">
+                    <span class="section-tag">// proyectos</span>
+                    <h2>Lo que he construido</h2>
+                </div>
                 <div class="carousel-container">
                     <button class="carousel-btn prev" aria-label="Proyecto anterior">❮</button>
                     <div class="carousel-track">
                         <div class="project-card">
+                            <div class="card-top">
+                                <span class="project-num">01</span>
+                                <span class="project-tag">Full Stack</span>
+                            </div>
                             <h3>Gestor de Tareas</h3>
                             <p>Aplicación full stack para la gestión ágil de tareas. Construida con Angular y SpringBoot.</p>
-                            <a href="#" class="btn">Ver más</a>
+                            <div class="card-tech">
+                                <span>Angular</span><span>SpringBoot</span>
+                            </div>
+                            <a href="#" class="btn">Ver más →</a>
                         </div>
                         <div class="project-card">
+                            <div class="card-top">
+                                <span class="project-num">02</span>
+                                <span class="project-tag">E-commerce</span>
+                            </div>
                             <h3>E-commerce</h3>
                             <p>Plataforma de ventas online con carrito de compras y pasarela de pago. Hecha con Laravel y MySQL.</p>
-                            <a href="#" class="btn">Ver más</a>
+                            <div class="card-tech">
+                                <span>Laravel</span><span>MySQL</span>
+                            </div>
+                            <a href="#" class="btn">Ver más →</a>
                         </div>
                         <div class="project-card">
+                            <div class="card-top">
+                                <span class="project-num">03</span>
+                                <span class="project-tag">Blog</span>
+                            </div>
                             <h3>Blog Personal</h3>
                             <p>Un blog minimalista y rápido construido con Astro. Enfocado en SEO y rendimiento.</p>
-                            <a href="#" class="btn">Ver más</a>
+                            <div class="card-tech">
+                                <span>Astro</span><span>SEO</span>
+                            </div>
+                            <a href="#" class="btn">Ver más →</a>
                         </div>
                         <div class="project-card">
+                            <div class="card-top">
+                                <span class="project-num">04</span>
+                                <span class="project-tag">API REST</span>
+                            </div>
                             <h3>App del Clima</h3>
                             <p>Frontend interactivo que consume una API REST para mostrar el clima en tiempo real.</p>
-                            <a href="#" class="btn">Ver más</a>
+                            <div class="card-tech">
+                                <span>JavaScript</span><span>API</span>
+                            </div>
+                            <a href="#" class="btn">Ver más →</a>
                         </div>
                         <div class="project-card">
+                            <div class="card-top">
+                                <span class="project-num">05</span>
+                                <span class="project-tag">Dashboard</span>
+                            </div>
                             <h3>Dashboard Web</h3>
                             <p>Panel de administración con gráficos dinámicos y reportes exportables.</p>
-                            <a href="#" class="btn">Ver más</a>
+                            <div class="card-tech">
+                                <span>Angular</span><span>Charts</span>
+                            </div>
+                            <a href="#" class="btn">Ver más →</a>
                         </div>
                     </div>
                     <button class="carousel-btn next" aria-label="Siguiente proyecto">❯</button>
                 </div>
-                <p class="desliza">Desliza para ver más proyectos</p>
+                <p class="desliza">
+                    <span class="desliza-icon">⟵</span> Desliza para explorar <span class="desliza-icon">⟶</span>
+                </p>
             </article>
         </section>
 
+        <!-- SECCIÓN CV -->
+        <section class="cv-section" id="cv">
+            <div class="cv-container">
+                <div class="section-header centered">
+                    <span class="section-tag">// curriculum vitae</span>
+                    <h2>Mi Trayectoria</h2>
+                    <p class="section-desc">Descarga mi CV completo o consulta aquí mi experiencia formativa y habilidades principales.</p>
+                </div>
+
+                <div class="cv-grid">
+                    <!-- Columna izquierda: Experiencia + Formación -->
+                    <div class="cv-column">
+                        <div class="cv-block">
+                            <div class="cv-block-header">
+                                <span class="cv-icon">💼</span>
+                                <h3>Experiencia Laboral</h3>
+                            </div>
+                            <div class="cv-timeline">
+                                <div class="cv-item">
+                                    <div class="cv-item-date">2024 — 2025</div>
+                                    <div class="cv-item-content">
+                                        <h4>Web Developer</h4>
+                                        <span class="cv-item-place">Ventura Espejo S.L.</span>
+                                        <ul class="cv-item-list">
+                                            <li>Desarrollo de aplicaciones web con Laravel, Angular y SQL.</li>
+                                            <li>Implementación de funcionalidades frontend y backend con desarrolladores senior.</li>
+                                            <li>Control de versiones con Git en entornos de desarrollo ágiles.</li>
+                                            <li>Optimización de interfaces y resolución de errores en producción.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cv-item">
+                                    <div class="cv-item-date">2022 — 2023</div>
+                                    <div class="cv-item-content">
+                                        <h4>Full Stack Developer</h4>
+                                        <span class="cv-item-place">Estampaciones Casado S.A.</span>
+                                        <ul class="cv-item-list">
+                                            <li>Mejora del sitio web corporativo optimizando diseño y funcionalidad.</li>
+                                            <li>Desarrollo de una plataforma web para un dispositivo de señal conectado.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cv-block">
+                            <div class="cv-block-header">
+                                <span class="cv-icon">🎓</span>
+                                <h3>Formación</h3>
+                            </div>
+                            <div class="cv-timeline">
+                                <div class="cv-item">
+                                    <div class="cv-item-date">2023 — 2025</div>
+                                    <div class="cv-item-content">
+                                        <h4>Técnico Superior — Desarrollador de Aplicaciones Web</h4>
+                                        <span class="cv-item-place">IES Tartessos · IES Gran Capitán, Córdoba</span>
+                                    </div>
+                                </div>
+                                <div class="cv-item">
+                                    <div class="cv-item-date">2021 — 2023</div>
+                                    <div class="cv-item-content">
+                                        <h4>Técnico Grado Medio — Sistemas Microinformáticos y Redes</h4>
+                                        <span class="cv-item-place">IES Fidiana, Córdoba</span>
+                                    </div>
+                                </div>
+                                <div class="cv-item">
+                                    <div class="cv-item-date">2024</div>
+                                    <div class="cv-item-content">
+                                        <h4>Diploma — Procesamiento de Datos con Java</h4>
+                                        <span class="cv-item-place">IFCT079PO · Formación oficial</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna derecha: Stack técnico + Habilidades + Idiomas -->
+                    <div class="cv-column">
+                        <div class="cv-block">
+                            <div class="cv-block-header">
+                                <span class="cv-icon">⚡</span>
+                                <h3>Tecnologías</h3>
+                            </div>
+                            <div class="tech-groups">
+                                <div class="tech-group">
+                                    <span class="tech-group-label">Lenguajes</span>
+                                    <div class="tech-tags">
+                                        <span>Java</span><span>PHP</span><span>Python</span><span>SQL</span>
+                                        <span>JavaScript</span><span>TypeScript</span><span>HTML5</span><span>CSS3</span><span>Bash</span>
+                                    </div>
+                                </div>
+                                <div class="tech-group">
+                                    <span class="tech-group-label">Frameworks</span>
+                                    <div class="tech-tags">
+                                        <span>Laravel</span><span>Symfony</span><span>Angular</span><span>Astro</span>
+                                        <span>SpringBoot</span><span>SpringSecurity</span><span>Hibernate/JPA</span>
+                                        <span>Bootstrap</span><span>Tailwind CSS</span>
+                                    </div>
+                                </div>
+                                <div class="tech-group">
+                                    <span class="tech-group-label">Bases de datos</span>
+                                    <div class="tech-tags">
+                                        <span>MySQL</span><span>MariaDB</span>
+                                    </div>
+                                </div>
+                                <div class="tech-group">
+                                    <span class="tech-group-label">Herramientas</span>
+                                    <div class="tech-tags">
+                                        <span>Git</span><span>GitHub</span><span>VS Code</span><span>PhpStorm</span>
+                                        <span>IntelliJ IDEA</span><span>API REST</span><span>AJAX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cv-block">
+                            <div class="cv-block-header">
+                                <span class="cv-icon">🧠</span>
+                                <h3>Habilidades Blandas</h3>
+                            </div>
+                            <div class="soft-skills">
+                                <div class="soft-skill-item">
+                                    <span class="soft-skill-dot"></span>
+                                    Desarrollo Full Stack (Backend y Frontend)
+                                </div>
+                                <div class="soft-skill-item">
+                                    <span class="soft-skill-dot"></span>
+                                    Gestión de proyectos y coordinación operativa
+                                </div>
+                                <div class="soft-skill-item">
+                                    <span class="soft-skill-dot"></span>
+                                    Optimización de procesos y resolución de problemas
+                                </div>
+                                <div class="soft-skill-item">
+                                    <span class="soft-skill-dot"></span>
+                                    Trabajo en equipo y comunicación efectiva
+                                </div>
+                                <div class="soft-skill-item">
+                                    <span class="soft-skill-dot"></span>
+                                    Adaptabilidad en entornos dinámicos y ágiles
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cv-block">
+                            <div class="cv-block-header">
+                                <span class="cv-icon">🌐</span>
+                                <h3>Idiomas y Otros</h3>
+                            </div>
+                            <div class="lang-list">
+                                <div class="lang-item">
+                                    <span>Español</span>
+                                    <span class="lang-level native">Nativo</span>
+                                </div>
+                                <div class="lang-item">
+                                    <span>Inglés</span>
+                                    <span class="lang-level b1">Nivel medio</span>
+                                </div>
+                                <div class="lang-item">
+                                    <span>Carnet de conducir</span>
+                                    <span class="lang-level native">Permiso B</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón de descarga prominente -->
+                <div class="cv-download-area">
+                    <div class="cv-download-card">
+                        <div class="cv-download-info">
+                            <span class="cv-file-icon">📄</span>
+                            <div>
+                                <strong>CV_HectorMoraSanchez_ES.pdf</strong>
+                                <span>Curriculum Vitae completo</span>
+                            </div>
+                        </div>
+                        <a href="./docs/CV_HectorMoraSanchez_ES.pdf" download="CV_HectorMoraSanchez_ES.pdf" class="btn-download">
+                            <span class="btn-download-icon">⬇</span>
+                            Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
         <section class="contacto" id="contacto">
             <div class="contact-container">
-                <h2>Comienza un nuevo proyecto</h2>
-                <p>¿Buscas un desarrollador Full Stack para tu equipo o tienes una idea en mente? ¡No dudes en contactarme!</p>
+                <div class="section-header centered">
+                    <span class="section-tag">// contacto</span>
+                    <h2>Comencemos algo</h2>
+                    <p class="section-desc">¿Tienes un proyecto en mente o buscas un desarrollador para tu equipo? Escríbeme sin compromiso.</p>
+                </div>
                 <div class="contact-info">
                     <a href="mailto:hectorgamerfmn@gmail.com" class="contact-card">
                         <span class="icon">✉️</span>
@@ -117,7 +348,12 @@
         </section>
 
         <footer>
-
+            <div class="footer-content">
+                <div class="logo footer-logo">
+                    <span class="logo-bracket">&lt;</span>HMS<span class="logo-slash">/</span><span class="logo-bracket">&gt;</span>
+                </div>
+                <p>Diseñado y desarrollado por Héctor · 2025</p>
+            </div>
         </footer>
     </body>
 </html>
